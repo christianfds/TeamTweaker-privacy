@@ -10,61 +10,135 @@ body { font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; li
 main { max-width: 800px; margin: 0 auto; padding: 24px 20px 64px; }
 h1 { font-size: 1.6rem; }
 h2 { font-size: 1.15rem; margin-top: 2em; }
+h3 { font-size: 1rem; margin-top: 1.6em; }
 .meta { color: #666; }
 .meta a { color: inherit; }
 nav.lang { margin: 16px 0; font-size: .95rem; }
 code { font-size: .9em; }
-@media (prefers-color-scheme: dark) { .meta { color: #aaa; } }
+ul { padding-left: 1.2em; }
+table { border-collapse: collapse; width: 100%; font-size: .95rem; }
+th, td { text-align: left; vertical-align: top; padding: 8px 10px; border-bottom: 1px solid #ddd; }
+th { font-weight: 600; }
+@media (prefers-color-scheme: dark) { .meta { color: #aaa; } th, td { border-color: #333; } }
 </style>
 </head>
 <body>
 <main>
 <nav class="lang"><a href="../">English</a></nav>
 <h1>Política de Privacidade do TeamTweaker</h1>
-<p class="meta">Data de vigência: 2026-10-15<br>
+<p class="meta">Data de vigência: 2026-10-20<br>
 Aplicativo: TeamTweaker (pacote Android: <code>com.christianfds.teamtweaker</code>)<br>
-Publicador: christianfds<br>
+Publicador / controlador: Christian Franchin (desenvolvedor independente, &ldquo;christianfds&rdquo;)<br>
 Contato: <a href="mailto:christianfranchin.dev@gmail.com">christianfranchin.dev@gmail.com</a></p>
+<p>Esta política cobre o aplicativo TeamTweaker para Android distribuído no Google Play, a versão web opcional e qualquer versão futura para iOS. Ela foi escrita para atender ao GDPR (UE/Reino Unido), à LGPD brasileira (Lei nº 13.709/2018) e às leis estaduais dos EUA descritas na seção 10, incluindo a CCPA/CPRA.</p>
 
-<h2>1. Visão geral</h2>
-<p>O TeamTweaker cria times equilibrados a partir de avaliações por estrelas e executa um placar local. O aplicativo funciona totalmente no seu dispositivo. Não há contas, não operamos servidores e nenhum dado é enviado para nós.</p>
+<h2>1. Resumo</h2>
+<ul>
+<li>Seu elenco, times, placares e configurações ficam apenas no seu dispositivo. Não há contas nem servidores nossos que os armazenem.</li>
+<li>Dois serviços de terceiros mantêm o app gratuito: o <strong>Google AdMob</strong> para os banners e o <strong>RevenueCat</strong> para a compra única de &ldquo;remover anúncios&rdquo;.</li>
+<li>Esses serviços recebem dados técnicos limitados: identificador de publicidade, endereço IP, informações do app/dispositivo, interações com anúncios e status da compra. Eles nunca recebem nomes de jogadores, avaliações, escalações ou dados de partidas.</li>
+<li><strong>Não</strong> vendemos informações pessoais e não usamos SDKs próprios de análise ou de relatório de falhas.</li>
+</ul>
 
-<h2>2. Dados armazenados no seu dispositivo</h2>
+<h2>2. Dados armazenados apenas no seu dispositivo</h2>
 <p>Tudo o que você digita permanece no armazenamento local (AsyncStorage), a menos que você o exporte explicitamente:</p>
 <ul>
 <li>nomes de jogadores, avaliações por estrelas e disponibilidade</li>
 <li>número/tamanho de times, modo de nomeação, nomes personalizados, fixações (pins)</li>
 <li>resultados do balanceamento, placar, partidas e histórico do agendador</li>
-<li>idioma, tema e preferência de remoção de anúncios</li>
+<li>idioma, tema e meta de vitória</li>
 </ul>
-<p>As chaves incluem <code>teamtweaker:current:v1</code> e <code>teamtweaker.premium.v1</code>. Limpar os dados do app, usar Recomeçar ou desinstalar apaga tudo. Não mantemos cópia em servidor e não podemos recuperar ou apagar por você.</p>
+<p>A sessão fica em <code>teamtweaker:current:v1</code>. Limpar os dados do app, usar Recomeçar ou desinstalar apaga tudo. Não mantemos cópia em servidor e não podemos recuperar ou apagar por você.</p>
+<p>O direito de remover anúncios <strong>não</strong> é guardado como indicação local confiável: o app revalida com o RevenueCat e com a loja a cada inicialização.</p>
 
-<h2>3. Dados de terceiros</h2>
-<p>Nomes de jogadores podem identificar colegas, inclusive menores. Essas informações nunca saem do seu dispositivo por nossa causa. Adicione apenas nomes que você tem direito de usar e compartilhe exportações (menu Compartilhar / copiar) somente com consentimento.</p>
+<h2>3. Dados tratados por serviços de terceiros</h2>
+<table>
+<tr><th>Serviço</th><th>Finalidade</th><th>Dados envolvidos</th></tr>
+<tr><td>Google AdMob (SDK Google Mobile Ads)</td><td>Banners, medição de anúncios, prevenção de fraude e abuso</td><td>Identificador de publicidade (Android Advertising ID / IDFA no iOS), endereço IP (do qual se deriva localização aproximada), informações de dispositivo e app (modelo, versão do sistema, versão do app, idioma), impressões e cliques em anúncios, diagnósticos gerais</td></tr>
+<tr><td>RevenueCat</td><td>Validar e restaurar a compra de remoção de anúncios e manter o direito em sincronia</td><td>Um identificador anônimo de usuário gerado pelo RevenueCat, status de compra e do direito, plataforma e versão do app. Sem dados de cartão</td></tr>
+<tr><td>Google Play</td><td>Processar o pagamento</td><td>Os dados de pagamento são tratados pelo Google Play. Nunca vemos dados de cartão</td></tr>
+</table>
 
-<h2>4. Dados que não coletamos</h2>
-<p>Nesta versão, não coletamos, transmitimos, vendemos nem compartilhamos dados pessoais, localização, contatos, fotos, identificadores ou análises de uso. O app não inclui SDKs de análise, relatórios de falhas, login ou publicidade.</p>
+<h2>4. Publicidade, identificadores de publicidade e rastreamento</h2>
 <ul>
-<li>O idioma do dispositivo é lido localmente apenas para definir o idioma padrão.</li>
-<li>Compartilhar / Copiar envia o texto dos times pelo sistema somente ao tocar.</li>
-<li>Abrir um link externo usa o navegador interno; vale então a política do site.</li>
+<li>Os banners aparecem no rodapé das quatro abas principais. Nunca são exibidos no modo de apresentação em tela cheia.</li>
+<li><strong>Anúncios personalizados.</strong> Quando permitido, o Google pode usar seu identificador de publicidade e suas interações com anúncios em apps e sites para selecionar e medir anúncios. Onde o consentimento é exigido (EEE, Reino Unido, Suíça e estados dos EUA com regras de opt-in) o app mostra uma mensagem de consentimento certificada pelo Google (Google User Messaging Platform) antes de solicitar anúncios personalizados.</li>
+<li><strong>Anúncios não personalizados.</strong> Se você recusar, ou se não for possível estabelecer um estado de consentimento, o app solicita apenas anúncios não personalizados. Eles são selecionados por informações contextuais e não se baseiam no seu identificador de publicidade para criação de perfil.</li>
+<li><strong>Android.</strong> Você pode redefinir ou excluir seu ID de publicidade nas configurações do dispositivo (normalmente Configurações &rarr; Google &rarr; Anúncios). Excluí-lo desativa o ID de publicidade para todos os apps.</li>
+<li><strong>iOS / IDFA.</strong> Ainda não há versão publicada para iOS. Quando os anúncios chegarem ao iOS, o app solicitará a permissão App Tracking Transparency <em>antes</em> de qualquer acesso ao IDFA. Recusar significa nenhum IDFA, nenhum rastreamento entre apps e apenas anúncios não personalizados; a escolha pode ser alterada depois em Ajustes &rarr; Privacidade e Segurança &rarr; Rastreamento.</li>
+<li>Nós mesmos nunca recebemos seu identificador de publicidade ou endereço IP: eles são trocados diretamente entre o seu dispositivo e o Google.</li>
 </ul>
 
-<h2>5. Publicidade e rastreamento</h2>
-<p>Esta versão não exibe anúncios de terceiros, não usa ID de publicidade e não realiza rastreamento entre apps. Os espaços de banner não renderizam nada nas builds de produção.</p>
-<p>Se uma versão futura ativar Google AdMob (Android/iOS) ou AdSense (web), o Google e parceiros poderão coletar identificadores do dispositivo, localização aproximada por IP e interações com anúncios para exibir e medir anúncios. Esta política será atualizada antes desse lançamento, e a declaração de Segurança dos dados na Play será alterada. Somente no iOS, uma futura versão com anúncios poderá solicitar a permissão App Tracking Transparency; negar resulta apenas em anúncios não personalizados.</p>
+<h2>5. Compras</h2>
+<p>A compra única opcional de &ldquo;remover anúncios&rdquo; é processada pelo Google Play. O RevenueCat valida o recibo e informa ao app se o direito está ativo, para que os banners desapareçam em todos os dispositivos onde a compra for restaurada. Não recebemos dados de pagamento. Os registros de compra são mantidos pelo tempo necessário para honrar e restaurar a compra e para cumprir obrigações fiscais e contábeis.</p>
 
-<h2>6. Compras</h2>
-<p>Uma futura compra única de &ldquo;remover anúncios&rdquo; poderá ser oferecida via Google Play (Android) ou App Store (iOS). Pagamentos são processados pela loja; guardamos apenas uma indicação local de que os anúncios foram removidos.</p>
+<h2>6. O que nunca recebemos</h2>
+<ul>
+<li>nomes, avaliações ou disponibilidade dos jogadores</li>
+<li>dados de times, placares, partidas, agendador ou histórico de partidas</li>
+<li>conteúdo de exportações ou backups</li>
+<li>seu identificador de publicidade ou endereço IP</li>
+<li>dados de cartão de pagamento</li>
+</ul>
 
-<h2>7. Crianças</h2>
-<p>O TeamTweaker é uma ferramenta de organização para o público geral, não direcionada a crianças. Como todos os dados ficam no dispositivo do organizador, não coletamos centralmente dados de crianças.</p>
+<h2>7. Compartilhamento e transferências internacionais</h2>
+<p>Compartilhamos dados pessoais apenas com os serviços da seção 3, e somente para as finalidades ali descritas. Não vendemos informações pessoais e não as divulgamos a mais ninguém, exceto quando a lei exigir.</p>
+<p>Google e RevenueCat estão sediados nos Estados Unidos. Quando dados pessoais saem do EEE, do Reino Unido, da Suíça ou do Brasil, esses fornecedores declaram usar salvaguardas adequadas &mdash; Cláusulas Contratuais Padrão e/ou o EU-US Data Privacy Framework &mdash; conforme descrito em suas políticas publicadas:</p>
+<ul>
+<li>Google: <a href="https://policies.google.com/privacy" rel="noopener">https://policies.google.com/privacy</a></li>
+<li>RevenueCat: <a href="https://www.revenuecat.com/privacy" rel="noopener">https://www.revenuecat.com/privacy</a></li>
+</ul>
 
-<h2>8. Retenção e seus direitos</h2>
-<p>A retenção está sob seu controle, pois os dados nunca saem do dispositivo: limpe no app, limpe o armazenamento nas configurações do sistema ou desinstale. Dúvidas: <a href="mailto:christianfranchin.dev@gmail.com">christianfranchin.dev@gmail.com</a>.</p>
+<h2>8. Retenção</h2>
+<ul>
+<li>Dados no dispositivo: até você limpá-los no app, limpar o armazenamento ou desinstalar.</li>
+<li>Dados de anúncios no Google: conforme as políticas de retenção do Google.</li>
+<li>RevenueCat: pelo tempo necessário para manter e restaurar sua compra.</li>
+</ul>
 
-<h2>9. Alterações</h2>
-<p>Alterações relevantes serão publicadas aqui, com nova data de vigência, antes da atualização correspondente.</p>
+<h2>9. Bases legais (GDPR / LGPD)</h2>
+<ul>
+<li><strong>Consentimento</strong> &mdash; publicidade personalizada e qualquer rastreamento opcional no iOS. Você pode revogar a qualquer momento; a revogação não afeta o tratamento já realizado.</li>
+<li><strong>Legítimo interesse</strong> &mdash; exibir anúncios não personalizados, manter o app gratuito, segurança, prevenção de fraude e diagnóstico de falhas. Equilibramos esses interesses com os seus direitos e usamos o mínimo de dados necessário.</li>
+<li><strong>Execução de contrato</strong> &mdash; validar e restaurar a compra de remoção de anúncios que você optou por fazer.</li>
+<li><strong>Obrigação legal</strong> &mdash; manter registros de compra quando a legislação fiscal ou contábil exigir.</li>
+</ul>
+<p>Sob a LGPD aplicam-se as mesmas bases (art. 7º): consentimento, legítimo interesse, execução de contrato e cumprimento de obrigação legal.</p>
+
+<h2>10. Seus direitos</h2>
+
+<h3>10.1 GDPR (UE / Reino Unido)</h3>
+<p>Você tem direito de acessar, corrigir, apagar, restringir, opor-se ao tratamento e receber seus dados em formato portável, além de revogar o consentimento e apresentar reclamação à autoridade de proteção de dados do seu país. Como os dados dos seus times nunca saem do dispositivo, a maioria dos pedidos é atendida limpando os dados do app ou desinstalando-o.</p>
+
+<h3>10.2 Brasil (LGPD)</h3>
+<p>Nos termos do art. 18, você pode solicitar confirmação de tratamento, acesso, correção, anonimização, bloqueio ou eliminação de dados desnecessários, portabilidade, informação sobre compartilhamento e revogação do consentimento. Também pode reclamar à ANPD (Autoridade Nacional de Proteção de Dados).</p>
+
+<h3>10.3 Estados Unidos (CCPA/CPRA e outras leis estaduais)</h3>
+<p>Se você é residente na Califórnia, tem direito de saber quais informações pessoais são coletadas, de apagá-las, corrigi-las, de optar por não participar da &ldquo;venda&rdquo; ou do &ldquo;compartilhamento&rdquo; de informações pessoais, de limitar o uso de informações pessoais sensíveis e de não sofrer discriminação por exercer esses direitos. Não vendemos informações pessoais; quando a publicidade personalizada se enquadra em &ldquo;compartilhamento&rdquo; ou &ldquo;publicidade direcionada&rdquo; na lei do seu estado, você pode optar por não participar conforme a seção 11. Residentes de outros estados com leis abrangentes de privacidade (por exemplo, Virgínia, Colorado, Connecticut, Utah, Texas, Oregon) têm direitos equivalentes de acesso, correção, exclusão, obtenção de cópia e oposição à publicidade direcionada.</p>
+
+<h3>10.4 Como exercer seus direitos</h3>
+<p>Envie um e-mail para <a href="mailto:christianfranchin.dev@gmail.com">christianfranchin.dev@gmail.com</a>. Responderemos no prazo exigido pela lei aplicável (normalmente 30 dias, ou 15 dias pela LGPD). Podemos pedir informações suficientes para identificar o pedido, mas não temos sistema de contas &mdash; na prática, o caminho mais rápido para os dados dos times é o seu próprio dispositivo. Para dados mantidos pelo Google ou pelo RevenueCat, você também pode contatá-los diretamente, ou nos pedir e encaminharemos o pedido.</p>
+
+<h2>11. Não vender nem compartilhar</h2>
+<p>Não vendemos informações pessoais por dinheiro. Para optar por não receber publicidade personalizada:</p>
+<ol>
+<li>recuse anúncios personalizados na mensagem de consentimento quando ela for exibida, ou</li>
+<li>altere sua escolha depois nas opções de privacidade oferecidas pela mensagem de consentimento, e/ou</li>
+<li>redefina ou exclua seu ID de publicidade nas configurações do dispositivo (Android), ou desative &ldquo;Permitir que Apps Solicitem Rastreamento&rdquo; (iOS).</li>
+</ol>
+<p>Em todos os casos o app continua funcionando e continua exibindo anúncios não personalizados, a menos que você compre a remoção de anúncios.</p>
+
+<h2>12. Crianças</h2>
+<p>O TeamTweaker é uma ferramenta de organização para o público geral e não é direcionado a crianças. Não coletamos intencionalmente informações pessoais de crianças menores de 13 anos (COPPA), menores de 16 anos (art. 8º do GDPR, quando aplicável) ou menores de 12 anos (art. 14 da LGPD). Os nomes de jogadores que você digita &mdash; que podem incluir menores &mdash; permanecem no seu dispositivo e nunca são enviados para nós. Se você acredita que dados de uma criança chegaram a um serviço de terceiros por meio deste app, entre em contato e ajudaremos a exercer os direitos de exclusão.</p>
+
+<h2>13. Segurança</h2>
+<p>Os dados dos times são protegidos pela segurança do próprio dispositivo (bloqueio de tela, sandbox do sistema, permissões de armazenamento do app) e por criptografia em trânsito para os SDKs de terceiros. Nenhum método é perfeitamente seguro, mas mantemos a superfície de dados deliberadamente pequena: sem contas, sem servidor nosso, sem análise de uso.</p>
+
+<h2>14. Alterações</h2>
+<p>Alterações relevantes são publicadas na cópia hospedada acima, com nova data de vigência, antes da atualização correspondente do app. A data no topo desta página sempre identifica a versão atual.</p>
+
+<h2>15. Contato</h2>
+<p>Christian Franchin &mdash; <a href="mailto:christianfranchin.dev@gmail.com">christianfranchin.dev@gmail.com</a></p>
 </main>
 </body>
 </html>
